@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { UserAddOutlined } from '@ant-design/icons';
-
 import { Form, Label, Input, Button, Span } from './FormList.styled';
-
 class FormList extends Component {
   state = {
     name: '',
