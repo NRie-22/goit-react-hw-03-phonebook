@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ListWrap, List } from './ContactList.styled';
 import { Button } from 'components/FormList/FormList.styled';
 import { UserDeleteOutlined } from '@ant-design/icons';
-// import PropTypes from 'prop-types';
+//import 'antd/dist/antd.css'; // Додайте цей рядок для підключення стилів Ant Design
 
 const ContactList = ({ contacts, onDelete }) => {
   return (
@@ -18,6 +19,17 @@ const ContactList = ({ contacts, onDelete }) => {
       ))}
     </ListWrap>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ContactList;
